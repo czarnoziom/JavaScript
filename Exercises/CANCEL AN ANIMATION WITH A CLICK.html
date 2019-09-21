@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Interactive programming</title>
+</head>
+<body>
+<h1 id="heading">Hello world!</h1>
+<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+<script>
+
+
+
+//Punkt początkowy
+var leftOffset = 0;
+var topOffset = 0;
+
+//Nagłówek porusza się w prawo
+ var moveHeading1 = function () {
+ $("#heading").offset({ left: leftOffset });
+ if (leftOffset < 80 && topOffset==0) { leftOffset++;}
+};
+var right = setInterval(moveHeading1, 15);
+
+//Nagłówek porusza się w dół
+ var moveHeading2 = function () {
+ $("#heading").offset({ top: topOffset });
+ if ( topOffset < 80 && leftOffset==80) { topOffset++;}
+};
+var down = setInterval(moveHeading2, 15);
+
+//Nagłówek porusza się w lewo
+ var moveHeading3 = function () {
+ if ( topOffset == 80 && leftOffset > 0) { leftOffset--;}
+};
+var left = setInterval(moveHeading3, 15);
+
+//Nagłówek porusza się w górę
+var moveHeading4 = function () {
+ if ( topOffset > 0 && leftOffset == 0) { topOffset--;}
+};
+var up = setInterval(moveHeading4, 15);
+
+$( "#heading" ).click(function() {
+  clearInterval(right);
+  clearInterval(down);
+  clearInterval(left);
+  clearInterval(up);
+});
+
+
+
+
+
+</script>
+</body>
+</html>

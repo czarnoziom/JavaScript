@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+    <title>Canvas</title>
+    <style>
+            canvas{ background-color:blue;}
+    </style>
+</head>
+<body bgcolor="#E6E6FA">
+    
+    <h1 id="heading">Rysuj po niebieskim!</h1>
+    <canvas id="canvas" width="200" height="200"></canvas>
+
+<script>
+
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+
+$("canvas").mousemove(function (event) {
+        
+        ctx.beginPath();
+        ctx.arc(event.pageX-8, event.pageY-79, 3, 0, Math.PI * 2, false);
+        ctx.fill();
+                                        });
+
+
+
+</script>
+</body>
+</html>

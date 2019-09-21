@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Interactive programming</title>
+<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+</head>
+<body>
+  
+  <div style="background-color:lightblue; text-align: center;">
+
+      <h2 id="counter">Points: 0</h3>
+      
+
+  </div>
+  
+  <div><h1 id="heading">Hello world!</h1></div>
+  
+
+
+<script>
+//Punkt początkowy
+var leftOffset = 0;
+var topOffset = 60;
+
+//Nagłówek porusza się w prawo
+ var moveHeading1 = function () {
+ $("#heading").offset({ left: leftOffset });
+ if (leftOffset < 800 && topOffset==60) { leftOffset++;}
+};
+var right = setInterval(moveHeading1, 15);
+
+//Nagłówek porusza się w dół
+ var moveHeading2 = function () {
+ $("#heading").offset({ top: topOffset });
+ if ( topOffset < 400 && leftOffset==800) { topOffset++;}
+};
+var down = setInterval(moveHeading2, 15);
+
+//Nagłówek porusza się w lewo
+ var moveHeading3 = function () {
+ if ( topOffset == 400 && leftOffset > 0) { leftOffset--;}
+};
+var left = setInterval(moveHeading3, 15);
+
+//Nagłówek porusza się w górę
+var moveHeading4 = function () {
+ if ( topOffset > 60 && leftOffset == 0) { topOffset--;}
+};
+var up = setInterval(moveHeading4, 15);
+
+//Licznik punktów
+var button = document.getElementById("heading"),
+  count = 0;
+  button.onclick = function() {
+  count += 1;
+  counter.innerHTML = "Points: " + count;
+  
+};
+
+
+$( "#heading" ).click(function() {  
+  if (count<2){
+    //Przyśpieszenie ruchu nagłówka
+    var right = setInterval(moveHeading1, +1);
+    var down = setInterval(moveHeading2, +1);
+    var left = setInterval(moveHeading3, +1);
+    var up = setInterval(moveHeading4, +1);
+  }else if(count==2){
+    //Wygrana
+    alert("You won!!!");
+    $( "#heading" ).click(function() {
+  clearInterval(right);
+  clearInterval(down);
+  clearInterval(left);
+  clearInterval(up);
+  var right = setInterval(moveHeading1, 0);
+    var down = setInterval(moveHeading2, 0);
+    var left = setInterval(moveHeading3, 0);
+    var up = setInterval(moveHeading4, 0);
+});
+  }
+
+});
+
+
+ 
+
+</script>
+
+</body>
+</html>

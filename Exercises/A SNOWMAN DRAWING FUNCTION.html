@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Canvas</title>
+</head>
+<body>
+    <canvas id="canvas" width="2000" height="2000"></canvas>
+
+<script>
+
+    var x = prompt("Wpisz współrzędną x miejsca w którym będzie narysowany bałwanek", "0")
+    var y = prompt("Wpisz współrzędną y miejsca w którym będzie narysowany bałwanek", "0")
+
+
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+
+        var circle = function (xn, yn, radius, fillCircle) {
+        ctx.beginPath();
+        ctx.arc(xn, yn, radius, 0, Math.PI * 2, false);
+        if (fillCircle==true) {
+            ctx.fillStyle = this.ctx.strokeStyle;
+            ctx.fill();
+        }else{
+            ctx.stroke();
+        }
+        };
+
+    ctx.lineWidth = 3;
+    circle(x+32, y+32, 25, false);
+    circle(x+24, y+25, 3, true);
+    circle(x+40, y+25, 3, true);
+    circle(x+32, y+92, 35, false);
+    ctx.strokeStyle = "Orange";
+    circle(x+32, y+37, 3, true);
+    ctx.strokeStyle = "Red";
+    circle(x+32, y+70, 3, true);
+    circle(x+32, y+85, 3, true);
+    circle(x+32, y+99, 3, true);
+
+console.log(x);
+console.log(y);
+
+</script>
+</body>
+</html>

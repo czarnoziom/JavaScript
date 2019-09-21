@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8"/>
+
+    <script>
+        function sprawdz()
+        {
+            
+           var tekst = document.getElementById("pole").value;
+          
+           document.getElementById("wynik").innerHTML=tekst.length;
+
+           var przecinki = 0; 
+
+           for (var i=0; i<tekst.length; i++)
+            {
+                
+                if (tekst[i] === ","){
+                    przecinki += 1;
+                }
+            }
+
+            document.getElementById("wynik2").innerHTML=przecinki;
+
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <textarea rows="20" cols="50" id="pole"></textarea>    
+    <input type="submit" value="Sprawdź" onclick="sprawdz()"/>
+    <p>Tekst ma: </p>
+    <p id="wynik">...</p>
+    <p>znaków i </p> 
+    <p id="wynik2">...</p>
+    <p> przecinków</p>
+
+
+</body>
+</html>
